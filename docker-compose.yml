@@ -12,7 +12,7 @@ services:
     environment:
       PGPASSWORD: password
       PGUSER: root
-      PGDATABASE: clients
+      PGDATABASE: company
       PGPORT: 5432
       PGHOST: db
     ports:
