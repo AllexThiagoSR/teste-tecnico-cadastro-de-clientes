@@ -1,7 +1,11 @@
 const databaseConnection = require("../config/database");
 
-const getAll = async () => {
-  const { rows: clients } = await databaseConnection.query("SELECT * FROM clients");
+const getAll = async ({ q = '', email = '', phone = '' }) => {
+  const { rows: clients } = await databaseConnection.query(
+    `SELECT * FROM clients
+    WHERE name LIKE $1 AND email LIKE $2 AND phone LIKE $3`,
+    [`%${q}%`, `%${email}%`, `%${phone}%`],
+  );
   return clients;
 };
 

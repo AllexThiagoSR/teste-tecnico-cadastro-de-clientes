@@ -1,7 +1,8 @@
 const { clientService } = require("../services");
 
-const getAll = async (_req, res) => {
-  const { status, data } = await clientService.getAll();
+const getAll = async (req, res) => {
+  const { q, email, phone } = req.query;
+  const { status, data } = await clientService.getAll({ q, email, phone });
   return res.status(status).json(data);
 };
 

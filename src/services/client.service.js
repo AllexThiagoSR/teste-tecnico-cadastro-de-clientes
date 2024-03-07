@@ -4,8 +4,8 @@ const convertCordinates = require("../utils/convertCordinatesTypes");
 const nearestNeighbor = require("../utils/nearestNeighbor");
 const twoOpt = require("../utils/twoOpt");
 
-const getAll = async () => {
-  const clients = await clientModel.getAll();
+const getAll = async (queries) => {
+  const clients = await clientModel.getAll(queries);
   return { status: 200, data: convertCordinates.multipleClients(clients) };
 };
 
@@ -28,7 +28,6 @@ const create = async (values) => {
 const route = async () => {
   const clients = await clientModel.getAll();
   const initalRoute = nearestNeighbor(clients);
-  console.log(initalRoute);
   return {
     status: 200,
     data: twoOpt(initalRoute),

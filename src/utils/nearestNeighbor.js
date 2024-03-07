@@ -1,7 +1,6 @@
 const { calculateEuclidianDistance } = require("./calculateDistance");
 
 module.exports = (points) => {
-  const indices = Array.from({ length: points.length }, (_, i) => i);
   const visited = new Set(); // Pontos já visitados
   const route = [{ id: 0, name: 'Empresa', x: 0, y: 0 }]; // Indica a empresa o ponto 0
 
@@ -10,7 +9,7 @@ module.exports = (points) => {
     let nearestNeighbor = 0; // Valor inicial do vizinho mais próximo
     let minDistance = Infinity; // Valor de distância mínima que é infinito já que é o primeiro
 
-    for (const index of indices) { // vai rodar um loop para cada indice do array de pontos
+    for (let index = 0; index < points.length; index += 1) { // vai rodar um loop para cada indice do array de pontos
       const isTheSamePoint = points[index].id === actualPoint.id;
       if (!visited.has(index) && !isTheSamePoint) { // Se o ponto não visitado ainda e não for igual ao ponto de indice igual a index
         const distance = calculateEuclidianDistance(actualPoint, points[index]); // Calcula a distância entre o ponto atual e o ponto que estamos analizando
