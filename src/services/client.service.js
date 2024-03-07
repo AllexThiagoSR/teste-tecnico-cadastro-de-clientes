@@ -2,6 +2,7 @@ const { InternalError, Conflict } = require("../errors");
 const { clientModel } = require("../models");
 const convertCordinates = require("../utils/convertCordinatesTypes");
 const nearestNeighbor = require("../utils/nearestNeighbor");
+const twoOpt = require("../utils/twoOpt");
 
 const getAll = async () => {
   const clients = await clientModel.getAll();
@@ -25,11 +26,12 @@ const create = async (values) => {
 };
 
 const route = async () => {
-  const clientsWithCompany = [{ id: 0, name: 'Empresa', x: 0, y: 0 }, ...await clientModel.getAll()];
-  const initalRoute = nearestNeighbor(clientsWithCompany);
+  const clients = await clientModel.getAll();
+  const initalRoute = nearestNeighbor(clients);
+  console.log(initalRoute);
   return {
     status: 200,
-    data: initalRoute,
+    data: twoOpt(initalRoute),
   };
 }
 
