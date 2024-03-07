@@ -10,10 +10,11 @@ services:
     depends_on:
       - db
     environment:
-      POSTGRES_PASSWORD: password
-      POSTGRES_USER: root
-      POSTGRESS_DB: clients
-      POSTGRES_PORT: 5432
+      PGPASSWORD: password
+      PGUSER: root
+      PGDATABASE: clients
+      PGPORT: 5432
+      PGHOST: db
     ports:
       - 3001:3001
     tty: true
