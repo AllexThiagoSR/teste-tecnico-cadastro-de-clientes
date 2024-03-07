@@ -1,0 +1,36 @@
+version: '3'
+services:
+  backend:
+    container_name: api
+    command: dev
+    build: .
+    volumes:
+      - ./src:/backend/src
+    working_dir: /backend
+    depends_on:
+      - db
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: root
+      POSTGRESS_DB: clients
+      POSTGRES_PORT: 5432
+    ports:
+      - 3001:3001
+    tty: true
+    stdin_open: true
+    restart: always
+  db:
+    image: postgres
+    volumes:
+      - ./sql/migrations/01-create-table.sql:/docker-entrypoint-initdb.d/01-create-table.sql
+      - ./sql/seeders/02-seed-table.sql:/docker-entrypoint-initdb.d/02-seed-table.sql
+    shm_size: 128mb
+    container_name: database
+    platform: linux/x86_64
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: root
+      POSTGRES_DB: company
