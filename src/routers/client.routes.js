@@ -5,5 +5,7 @@ const router = Router();
 
 router.get('/', clientController.getAll);
 
+router.post('/', clientController.create);
+
 module.exports = router;
 
