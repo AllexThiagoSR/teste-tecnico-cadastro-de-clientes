@@ -1,15 +1,16 @@
 const { InternalError, Conflict } = require("../errors");
 const { clientModel } = require("../models");
+const convertCordinates = require("../utils/convertCordinatesTypes");
 
 const getAll = async () => {
   const clients = await clientModel.getAll();
-  return { status: 200, data: clients };
+  return { status: 200, data: convertCordinates.multipleClients(clients) };
 };
 
 const create = async (values) => {
   try {
     const client = await clientModel.create(values);
-    return { status: 201, data: client };
+    return { status: 201, data: convertCordinates.oneClient(client) };
   } catch (error) {
     if (error.message.includes('violates unique constraint "clients_email_key"')) {
       throw new Conflict('Email already registered.')
