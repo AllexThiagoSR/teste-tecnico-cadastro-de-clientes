@@ -8,5 +8,7 @@ router.get('/', clientController.getAll);
 
 router.post('/', createClientMiddleware, clientController.create);
 
+router.get('/route', clientController.route);
+
 module.exports = router;
 

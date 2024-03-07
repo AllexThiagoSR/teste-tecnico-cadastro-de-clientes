@@ -10,4 +10,9 @@ const create = async (req, res) => {
   return res.status(status).json(data);
 };
 
-module.exports = { getAll, create };
+const route = async (_req, res) => {
+  const { status, data } = await clientService.route();
+  return res.status(status).json(data);
+};
+
+module.exports = { getAll, create, route };

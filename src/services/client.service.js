@@ -1,11 +1,13 @@
 const { InternalError, Conflict } = require("../errors");
 const { clientModel } = require("../models");
 const convertCordinates = require("../utils/convertCordinatesTypes");
+const nearestNeighbor = require("../utils/nearestNeighbor");
 
 const getAll = async () => {
   const clients = await clientModel.getAll();
   return { status: 200, data: convertCordinates.multipleClients(clients) };
 };
+
 
 const create = async (values) => {
   try {
@@ -22,4 +24,13 @@ const create = async (values) => {
   }
 };
 
-module.exports = { getAll, create };
+const route = async () => {
+  const clientsWithCompany = [{ id: 0, name: 'Empresa', x: 0, y: 0 }, ...await clientModel.getAll()];
+  const initalRoute = nearestNeighbor(clientsWithCompany);
+  return {
+    status: 200,
+    data: initalRoute,
+  };
+}
+
+module.exports = { getAll, create, route };
