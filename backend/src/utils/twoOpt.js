@@ -16,7 +16,7 @@ module.exports = (route) => {
         const newRouteDistance = calculateTotalDistance(newRoute); // Soma a distância euclidiana entre todos os pontos da nova roda
         if (newRouteDistance < calculateTotalDistance(routeWithFinalPoint)) { // Compara com a soma da distância euclidiana entre todos os pontos da antiga rota. Se a nova distância for menor que antiga executa o código abaixo
           routeWithFinalPoint = newRoute; // Salva a nova rota
-        decreased = true; // Muda o decreased para true indicando que houve uma diminuição, o que fará o loop while rodar novamente
+          decreased = true; // Muda o decreased para true indicando que houve uma diminuição, o que fará o loop while rodar novamente
         }
       }
     }
