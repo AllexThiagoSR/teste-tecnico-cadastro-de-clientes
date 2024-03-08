@@ -3,12 +3,14 @@ import styles from '@/styles/Home.module.css'
 import ClientsList from '@/components/ClientsList'
 import FilterForm from '@/components/FilterForm';
 import { useCallback, useState } from 'react';
+import Route from '@/components/Route/index';
 
 export async function getServerSideProps() {
-  const clients = await fetch((process.env.URL_BASE || 'https://localhost:3001/api/') + 'clients');
+  const url = (process.env.URL_BASE || 'https://localhost:3001/api/') + 'clients'
+  const clients = await fetch(url);
   return {
     props: {
-      URL_BASE: process.env.URL_BASE + 'clients?',
+      URL_BASE: url,
       initialClients: await clients.json(),
     }
   }
@@ -16,10 +18,10 @@ export async function getServerSideProps() {
 
 export default function Home({ initialClients, URL_BASE }) {
   const [clients, setClients] = useState(initialClients);
+  const [showRoute, setShowRoute] = useState(false);
 
   const filterClients = useCallback(async (queries) => {
-    const filteredClients = await fetch(URL_BASE + new URLSearchParams(queries));
-    console.log('Rodei');
+    const filteredClients = await fetch(URL_BASE + '?' + new URLSearchParams(queries));
     setClients(await filteredClients.json())
   }, [URL_BASE]);
 
@@ -32,10 +34,13 @@ export default function Home({ initialClients, URL_BASE }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Clientes</h1>
+        <h1 className={ styles.mainTitle }>Clientes</h1>
         <FilterForm filter={filterClients}/>
         <ClientsList clients={ clients }/>
-        <button onClick={ () => filterClients() }>Teste</button>
+        <button onClick={ () => { setShowRoute(true); } }>Mostrar melhor rota</button>
+        {
+          showRoute && (<Route close={ () => setShowRoute(false) } url={URL_BASE}/>)
+        }
       </main>
     </>
   )

@@ -1,8 +1,15 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 
 export default function FilterForm({ filter }) {
   const [form, setForm] = useState({ q: '', email: '', phone: '' });
+
+  useEffect(() => {
+    if (form.q.length == 0 && form.email.length == 0 && form.phone.length == 0) {
+      filter()
+    }
+  }, [form]);
+
   const handleChange = useCallback((e) => {
     const { target: { name, value } } = e;
     setForm((data) => ({ ...data, [name]: value }));

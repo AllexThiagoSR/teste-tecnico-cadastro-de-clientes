@@ -8,12 +8,60 @@
   max-height: 100vh;
 }
 
+.title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mainTitle {
+  margin-bottom: 20px;
+}
+
+.routeContainer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+}
+
+.closeButton {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-weight: 900;
+  font-size: 20px;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+}
+
+.route {
+  position: relative;
+  background-color: black;
+  height: 500px;
+  width: 55%;
+  border: 1px solid rgba(var(--card-border-rgb), .5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .list {
   margin-top: 15px;
   list-style: none;
   overflow-x: scroll;
-  max-height: 60%;
+  max-height: 400px;
   width: 50%;
+}
+
+.route .list {
+  width: 80%;
+  margin: 0;
 }
 
 .filterForm {
@@ -67,6 +115,10 @@
 
   .card:hover span {
     transform: translateX(4px);
+  }
+
+  .main button:hover {
+    cursor: pointer;
   }
 }
 
