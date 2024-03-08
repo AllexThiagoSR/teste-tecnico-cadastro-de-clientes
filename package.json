@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "initialize": "docker compose up -d --build"
+    "initialize": "docker compose up -d --build",
+    "shutdown": "docker compose down"
   },
   "repository": {
     "type": "git",

@@ -7,15 +7,14 @@ services:
     volumes:
       - ./frontend/src:/frontend/src
       - ./frontend/public:/frontend/public
-      - ./frontend/.next:/frontend/.next
       - ./frontend/next.config.js:/frontend/next.config.js
     ports:
       - 3000:3000
-    environment:
-      - API_HOST=backend
-      - API_PROTOCOL=http
-      - API_PORT=3001
-      - URL_BASE=$API_PROTOCOL://$API_HOST:$API_PORT/api/
+    # environment:
+    #   API_HOST: "backend"
+    #   API_PROTOCOL: "http"
+    #   API_PORT: "3001"
+    #   URL_BASE: $API_PROTOCOL://$API_HOST:$API_PORT/api/
     tty: true
     stdin_open: true
     restart: always
