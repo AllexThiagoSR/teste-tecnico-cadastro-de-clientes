@@ -4,6 +4,7 @@ import ClientsList from '@/components/ClientsList'
 import FilterForm from '@/components/FilterForm';
 import { useCallback, useState } from 'react';
 import Route from '@/components/Route/index';
+import CreationForm from '@/components/CreationForm';
 
 export async function getServerSideProps() {
   const url = (process.env.URL_BASE || 'https://localhost:3001/api/') + 'clients'
@@ -19,6 +20,7 @@ export async function getServerSideProps() {
 export default function Home({ initialClients, URL_BASE }) {
   const [clients, setClients] = useState(initialClients);
   const [showRoute, setShowRoute] = useState(false);
+  const [creationMode, setCreationMode] = useState(false);
 
   const filterClients = useCallback(async (queries) => {
     const filteredClients = await fetch(URL_BASE + '?' + new URLSearchParams(queries));
@@ -37,9 +39,15 @@ export default function Home({ initialClients, URL_BASE }) {
         <h1 className={ styles.mainTitle }>Clientes</h1>
         <FilterForm filter={filterClients}/>
         <ClientsList clients={ clients }/>
-        <button onClick={ () => { setShowRoute(true); } }>Mostrar melhor rota</button>
+        <div>
+          <button onClick={ () => { setShowRoute(true); setCreationMode(false) } }>Mostrar melhor rota</button>
+          <button onClick={ () => { setShowRoute(false); setCreationMode(true) } }>Criar cliente</button>
+        </div>
         {
           showRoute && (<Route close={ () => setShowRoute(false) } url={URL_BASE}/>)
+        }
+        {
+          creationMode && (<CreationForm close={ () => setCreationMode(false) } url={URL_BASE}/>)
         }
       </main>
     </>

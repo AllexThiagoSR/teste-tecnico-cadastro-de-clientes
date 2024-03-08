@@ -11,8 +11,8 @@ export default function Route({ close, url }) {
   }, []);
 
   return (
-    <div className={styles.routeContainer}>
-      <section className={styles.route}>
+    <div className={styles.absoluteContainerWrapper}>
+      <section className={styles.absoluteContainer}>
         <h2 className={styles.title}>Rota</h2>
         <button className={ styles.closeButton } onClick={close}>X</button>
         <ClientsList clients={route} />

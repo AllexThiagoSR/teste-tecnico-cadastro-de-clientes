@@ -14,6 +14,7 @@ export default function FilterForm({ filter }) {
     const { target: { name, value } } = e;
     setForm((data) => ({ ...data, [name]: value }));
   }, []);
+  
   return (
     <form className={ styles.filterForm }>
       <input type="text" name="q" placeholder="Nome:" value={form.q} onChange={ handleChange }/>

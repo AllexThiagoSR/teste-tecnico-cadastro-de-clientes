@@ -18,7 +18,7 @@
   margin-bottom: 20px;
 }
 
-.routeContainer {
+.absoluteContainerWrapper {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -39,7 +39,7 @@
   right: 7px;
 }
 
-.route {
+.absoluteContainer {
   position: relative;
   background-color: black;
   height: 500px;
@@ -59,7 +59,7 @@
   width: 50%;
 }
 
-.route .list {
+.absoluteContainer .list {
   width: 80%;
   margin: 0;
 }
@@ -71,6 +71,41 @@
   width: 60%;
   display: flex;
   justify-content: space-around;
+}
+
+.creationForm {
+  border: 1px solid rgba(var(--card-border-rgb), .5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 5%;
+}
+
+.creationForm label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.creationForm p {
+  margin-top: 5;
+}
+
+.errorContainer {
+  max-width: 60%;
+  margin-top: 20px;
+}
+
+.creationForm .buttonLabel {
+  justify-content: center;
+}
+
+.buttonLabel button {
+  padding: 5px 50px;
+  font-size: larger;
 }
 
 .filterButton {
