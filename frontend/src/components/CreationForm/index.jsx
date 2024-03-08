@@ -13,7 +13,6 @@ export default function CreationForm({ close, saveClientInLocal, url }) {
 
   const createClient = useCallback(async (e) => {
     e.preventDefault();
-    const { name, email, phone, x, y } = formClient;
     const response = await fetch(
       url,
       {
@@ -22,12 +21,12 @@ export default function CreationForm({ close, saveClientInLocal, url }) {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         },
-        body: JSON.stringify({ name, email, phone, x, y }),
+        body: JSON.stringify(formClient),
       }
     );
     if (response.status !== 201) {
       const err = await response.text();
-      setError(<div className={ styles.errorContainer } dangerouslySetInnerHTML={ { __html: err }}></div>)
+      setError(<div dangerouslySetInnerHTML={ { __html: err }}></div>)
       return;
     }
     const client = await response.json();
