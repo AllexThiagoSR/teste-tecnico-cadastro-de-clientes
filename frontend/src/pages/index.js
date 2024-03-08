@@ -39,7 +39,7 @@ export default function Home({ initialClients, URL_BASE }) {
         <h1 className={ styles.mainTitle }>Clientes</h1>
         <FilterForm filter={filterClients}/>
         <ClientsList clients={ clients }/>
-        <div>
+        <div className={ styles.buttonsContainer }>
           <button onClick={ () => { setShowRoute(true); setCreationMode(false) } }>Mostrar melhor rota</button>
           <button onClick={ () => { setShowRoute(false); setCreationMode(true) } }>Criar cliente</button>
         </div>

@@ -66,9 +66,7 @@ export default function CreationForm({ close, saveClientInLocal, url }) {
             <button type="submit">Criar</button>
           </label>
         </form>
-        {
-          error
-        }
+        { error }
       </section>
     </div>
   );
