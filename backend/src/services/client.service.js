@@ -26,7 +26,7 @@ const create = async (values) => {
 };
 
 const route = async () => {
-  const clients = await clientModel.getAll();
+  const clients = await clientModel.getAll({});
   const initalRoute = nearestNeighbor(clients);
   return {
     status: 200,

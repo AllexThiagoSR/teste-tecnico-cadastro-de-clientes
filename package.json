@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "initialize": "docker compose -d --build"
+    "initialize": "docker compose up -d --build"
   },
   "repository": {
     "type": "git",
