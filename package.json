@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "initialize": "docker compose up -d --build",
-    "shutdown": "docker compose down"
+    "shutdown": "docker compose down",
+    "prestart": "npm run initialize && cd ./frontend && npm run build",
+    "start": " cd ./frontend && npm start"
   },
   "repository": {
     "type": "git",

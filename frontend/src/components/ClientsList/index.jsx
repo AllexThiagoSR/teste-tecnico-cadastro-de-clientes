@@ -1,7 +1,6 @@
-import { Client } from "@/types/Client";
 import styles from "@/styles/Home.module.css";
 
-export default function ClientsList({ clients }: { clients: Client[] }) {
+export default function ClientsList({ clients }) {
   return (
     <ul className={ styles.list }>
       {

@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
 import styles from "@/styles/Home.module.css";
 
-export default function FilterForm(/*{ filterFunc }: { filterFunc: Function }*/) {
+export default function FilterForm({ filter }) {
   const [form, setForm] = useState({ q: '', email: '', phone: '' });
-  const handleChange = useCallback((e: { target: { name: string, value: string } }) => {
+  const handleChange = useCallback((e) => {
     const { target: { name, value } } = e;
     setForm((data) => ({ ...data, [name]: value }));
   }, []);
@@ -20,6 +20,7 @@ export default function FilterForm(/*{ filterFunc }: { filterFunc: Function }*/)
           form.phone.length == 0
         }
         className={ styles.filterButton }
+        onClick={() => filter(form) }
       >Filtrar</button>
     </form>
   );
