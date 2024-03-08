@@ -103,6 +103,13 @@
   justify-content: center;
 }
 
+.buttonsContainer {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
 .buttonLabel button {
   padding: 5px 50px;
   font-size: larger;
