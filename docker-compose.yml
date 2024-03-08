@@ -3,9 +3,9 @@ services:
   backend:
     container_name: api
     command: dev
-    build: .
+    build: ./backend
     volumes:
-      - ./src:/backend/src
+      - ./backend/src:/backend/src
     working_dir: /backend
     depends_on:
       - db

@@ -1,26 +1,25 @@
 {
   "name": "teste-tecnico-cadastro-de-clientes",
   "version": "1.0.0",
-  "description": "Sistema de cadastro de clientes",
-  "main": "src/index.js",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "initialize": "docker compose up -d --build",
+    "shutdown": "docker compose down",
+    "prestart": "npm run initialize && cd ./frontend && npm run build",
+    "start": " cd ./frontend && npm start",
+    "predev": "npm run initialize",
+    "dev": "cd ./frontend && npm run dev"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes.git"
   },
-  "scripts": {
-    "dev": "nodemon ./src/index.js",
-    "start": "node ./src/index.js"
-  },
-  "author": "Allex Thiago",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.3",
-    "express-async-errors": "^3.1.1",
-    "helmet": "^7.1.0",
-    "pg": "^8.11.3"
+  "bugs": {
+    "url": "https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes/issues"
   },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
-  }
+  "homepage": "https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes#readme"
 }

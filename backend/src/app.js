@@ -3,6 +3,7 @@ require("express-async-errors");
 const cors = require("cors");
 const helmet = require("helmet");
 const connection = require("./config/database");
+const indexRouter = require("./routers");
 
 const app = express();
 
@@ -22,5 +23,7 @@ app.get('/', async (_req, res) => {
   const result = await connection.query('SELECT NOW()');
   return res.status(200).json({ message: 'API is running', result })
 });
+
+app.use('/api', indexRouter);
 
 module.exports = app;
