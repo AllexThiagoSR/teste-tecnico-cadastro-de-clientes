@@ -19,7 +19,7 @@ app.use(access);
 app.use(helmet());
 app.use(cors());
 
-app.get('/', async (_req, res) => {
+app.get('/api', async (_req, res) => {
   const result = await connection.query('SELECT NOW()');
   return res.status(200).json({ message: 'API is running', result })
 });
