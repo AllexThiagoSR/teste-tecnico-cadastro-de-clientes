@@ -1,5 +1,4 @@
-# Clients Manager
-<!-- <a href="https://github.com/AllexThiagoSR/event-house-manager/blob/main/README-en.md" >English version</a> -->
+# Clients Manager - <a href="https://drive.google.com/file/d/1Ygyr2kqiyIs1n3_Gkkw2IU5XtvIBNRjZ/view?usp=sharing" >Vídeo de apresentação</a>
 
   Um app fullstack que lista e adiciona clients, e calcula uma rota que visita todos os clientes e volta à empresa. 
 
