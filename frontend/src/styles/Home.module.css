@@ -112,6 +112,13 @@
   padding: 0.5% 2%;
 }
 
+.buttonsContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  padding: 30px 70px;
+}
+
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
