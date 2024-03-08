@@ -11,7 +11,7 @@ export default function CreationForm({ close, saveClientInLocal, url }) {
   });
   const [error, setError] = useState(<></>);
 
-  const createClient = useCallback(async (e) => {
+  const createClient = async (e) => {
     e.preventDefault();
     const response = await fetch(
       url,
@@ -30,15 +30,16 @@ export default function CreationForm({ close, saveClientInLocal, url }) {
       return;
     }
     const client = await response.json();
-    
     saveClientInLocal((clients) => [...clients, client]);
+    setForm({ name: '', email: '', phone: '', x: '', y: '' });
     setError(<></>);
-  }, [url]);
+    close();
+  };
 
   const handleChange = useCallback((e) => {
     const { target: { name, value } } = e;
     setForm((data) => ({ ...data, [name]: value }));
-  }, []);
+  });
 
   return (
     <div className={styles.absoluteContainerWrapper}>

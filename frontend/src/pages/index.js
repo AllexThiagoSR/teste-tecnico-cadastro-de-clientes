@@ -47,7 +47,7 @@ export default function Home({ initialClients, URL_BASE }) {
           showRoute && (<Route close={ () => setShowRoute(false) } url={URL_BASE}/>)
         }
         {
-          creationMode && (<CreationForm close={ () => setCreationMode(false) } url={URL_BASE}/>)
+          creationMode && (<CreationForm saveClientInLocal={ setClients } close={ () => setCreationMode(false) } url={URL_BASE}/>)
         }
       </main>
     </>
