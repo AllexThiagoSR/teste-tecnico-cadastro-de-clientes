@@ -1,0 +1,20 @@
+{
+  "name": "teste-tecnico-cadastro-de-clientes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "initialize": "docker compose -d --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes/issues"
+  },
+  "homepage": "https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes#readme"
+}

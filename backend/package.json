@@ -1,12 +1,8 @@
 {
-  "name": "teste-tecnico-cadastro-de-clientes",
+  "name": "teste-tecnico-cadastro-de-clientes-backend",
   "version": "1.0.0",
   "description": "Sistema de cadastro de clientes",
   "main": "src/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AllexThiagoSR/teste-tecnico-cadastro-de-clientes.git"
-  },
   "scripts": {
     "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js"

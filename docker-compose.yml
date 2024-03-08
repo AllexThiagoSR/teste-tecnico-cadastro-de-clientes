@@ -1,11 +1,32 @@
 version: '3'
 services:
+  frontend:
+    container_name: page
+    command: dev
+    build: ./frontend
+    volumes:
+      - ./frontend/src:/frontend/src
+      - ./frontend/public:/frontend/public
+      - ./frontend/.next:/frontend/.next
+      - ./frontend/next.config.js:/frontend/next.config.js
+    ports:
+      - 3000:3000
+    environment:
+      API_HOST: backend
+      API_PROTOCOL: http
+      API_PORT: 3001
+      URL_BASE: $API_PROTOCOL://$API_HOST:$API_PORT/api/
+    tty: true
+    stdin_open: true
+    restart: always
+    depends_on:
+      - backend
   backend:
     container_name: api
     command: dev
-    build: .
+    build: ./backend
     volumes:
-      - ./src:/backend/src
+      - ./backend/src:/backend/src
     working_dir: /backend
     depends_on:
       - db
