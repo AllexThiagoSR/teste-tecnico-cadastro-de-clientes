@@ -4,15 +4,29 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
+  padding-top: 0.5rem;
   max-height: 100vh;
 }
 
 .list {
-  margin-top: 5px;
+  margin-top: 15px;
   list-style: none;
   overflow-x: scroll;
-  height: 80%;
+  max-height: 60%;
   width: 50%;
+}
+
+.filterForm {
+  padding: 20px;
+  border: 1px solid rgba(var(--card-border-rgb), .5);
+  border-radius: 10px;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.filterButton {
+  padding: 0.5% 2%;
 }
 
 .card {

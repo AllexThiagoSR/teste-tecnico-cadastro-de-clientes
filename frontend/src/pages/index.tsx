@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import ClientsList from '@/components/ClientsList'
 import { Client } from '@/types/Client';
+import FilterForm from '@/components/FilterForm';
 
 export async function getServerSideProps() {
   const clients = await fetch((process.env.URL_BASE || 'http://localhost:3001/api/') + 'clients');
@@ -29,6 +30,7 @@ export default function Home({ clients }: Props) {
       </Head>
       <main className={styles.main}>
         <h1>Clientes</h1>
+        <FilterForm />
         <ClientsList clients={ clients }/>
       </main>
     </>
